@@ -1,5 +1,5 @@
-let sprBubble, sndPop
-let bubbles;
+let sprBubble, sndPop;
+let bubbles, counter;
 
 function preload() {
     sprBubble = loadImage("./assets/BubbleSimple.png");
@@ -10,6 +10,10 @@ function setup() {
     createCanvas(windowWidth, windowHeight - 5);
     
     bubbles = [];
+    counter = 0;
+
+    textAlign(LEFT, TOP);
+    textSize(20);
 }
 
 function draw() {
@@ -27,6 +31,9 @@ function draw() {
         bubble.move();
         bubble.checkPop(bubbles);
     }
+
+    // write the counter
+    text("Bubbles popped: " + counter, 10, 10);
 }
 
 function mousePressed() {
@@ -36,6 +43,7 @@ function mousePressed() {
         if (d <= bubble.r) {
             bubble.pop(bubbles);
             sndPop.play();
+            counter++;
         }
     }
 }
