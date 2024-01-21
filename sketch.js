@@ -3,7 +3,7 @@ let bubbles;
 
 function preload() {
     sprBubble = loadImage("./assets/BubbleSimple.png");
-    sndPop = loadSound("./assets/pop.mp3");
+    sndPop = loadSound("./assets/mixkit-one-clap-481.wav");
 }
 
 function setup() {
