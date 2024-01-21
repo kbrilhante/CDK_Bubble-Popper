@@ -1,4 +1,5 @@
 let sprBubble, sndPop
+let bubbles;
 
 function preload() {
     sprBubble = loadImage("./assets/BubbleSimple.png");
@@ -6,9 +7,14 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(windowWidth, windowHeight - 10);
+    createCanvas(windowWidth, windowHeight - 5);
+    
+    bubbles = new Bubble();
 }
 
 function draw() {
-    background(0);
+    background(200);
+
+    bubbles.show();
+    bubbles.move();
 }
