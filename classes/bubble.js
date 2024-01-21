@@ -8,9 +8,6 @@ class Bubble {
     }
     show() {
         push();
-        // ellipseMode(RADIUS);
-        // fill("cyan")
-        // circle(this.x, this.y, this.r);
         imageMode(CENTER);
         image(sprBubble, this.x, this.y, this.r * 2, this.r * 2)
         pop();
@@ -18,7 +15,6 @@ class Bubble {
     move() {
         this.x += this.dx;
         this.y += this.dy;
-
         const dice = round(random(100));
         if (dice === 0) {
             this.dx *= -1;
