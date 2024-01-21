@@ -19,6 +19,8 @@ class Bubble {
         this.x += this.dx;
         this.y += this.dy;
 
-        
+        if (frameCount % 100 === 0) {
+            this.dx *= -1;
+        }
     }
 }
