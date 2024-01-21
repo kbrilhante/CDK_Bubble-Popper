@@ -13,18 +13,29 @@ function setup() {
 }
 
 function draw() {
-    background(200);
+    background("#FFD2CC");
 
     // create a bubble
-    if (frameCount % 40 === 0) {
+    if (frameCount % 20 === 0) {
         const bubble = new Bubble();
         bubbles.push(bubble);
     }
 
-    for (let i = 0; i < bubbles.length; i++) {
+    for (let i = bubbles.length - 1; i >= 0; i--) {
         const bubble = bubbles[i];
         bubble.show();
         bubble.move();
+        bubble.checkPop(bubbles);
     }
 }
 
+function mousePressed() {
+    for (let i = 0; i < bubbles.length; i++) {
+        const bubble = bubbles[i];
+        const d = dist(bubble.x, bubble.y, mouseX, mouseY);
+        if (d <= bubble.r) {
+            bubble.pop(bubbles);
+            sndPop.play();
+        }
+    }
+}

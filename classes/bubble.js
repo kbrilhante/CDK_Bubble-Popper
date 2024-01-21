@@ -1,5 +1,5 @@
 class Bubble {
-    constructor () {
+    constructor() {
         this.r = random(15, 50);
         this.x = random(this.r, width - this.r);
         this.y = height + this.r;
@@ -19,8 +19,22 @@ class Bubble {
         this.x += this.dx;
         this.y += this.dy;
 
-        if (frameCount % 100 === 0) {
+        const dice = round(random(100));
+        if (dice === 0) {
             this.dx *= -1;
         }
+    }
+    checkPop(array) {
+        if (
+            this.y - this.r <= 0 ||
+            this.x - this.r <= 0 ||
+            this.x + this.r >= width
+        ) {
+            this.pop(array);
+        }
+    }
+    pop(array) {
+        const i = array.indexOf(this);
+        array.splice(i, 1);
     }
 }
